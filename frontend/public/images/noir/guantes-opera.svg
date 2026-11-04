@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 1100" role="img" aria-labelledby="title description">
+  <title id="title">Ilustracion original NOIR: Guantes Opera</title>
+  <desc id="description">Ilustracion vectorial editorial de Guantes Opera; referencia visual, no fotografia del producto.</desc>
+  <defs>
+    <linearGradient id="background" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#27232a"/><stop offset=".55" stop-color="#121115"/><stop offset="1" stop-color="#09090b"/></linearGradient>
+    <radialGradient id="halo"><stop stop-color="#9b6e83" stop-opacity=".42"/><stop offset="1" stop-color="#9b6e83" stop-opacity="0"/></radialGradient>
+    <linearGradient id="material" x1="0" y1="0" x2=".9" y2="1"><stop stop-color="#9b6e83"/><stop offset=".42" stop-color="#171519"/><stop offset=".78" stop-color="#28232a"/><stop offset="1" stop-color="#9b6e83" stop-opacity=".7"/></linearGradient>
+    <filter id="shadow" x="-30%" y="-30%" width="160%" height="170%"><feGaussianBlur stdDeviation="20"/></filter>
+  </defs>
+  <rect width="900" height="1100" fill="url(#background)"/><ellipse cx="500" cy="477" rx="380" ry="400" fill="url(#halo)"/>
+  <path d="M72 85h756M72 1015h756" stroke="#dfd3dc" stroke-opacity=".18"/><path d="M96 83v18m708-18v18M96 999v18m708-18v18" stroke="#c18ba0" stroke-opacity=".65"/>
+  <text x="96" y="144" fill="#c6a7b4" font-family="Arial,sans-serif" font-size="15" letter-spacing="5">NOIR  /  EDITORIAL OBJECT 13</text>
+  <ellipse cx="450" cy="774" rx="220" ry="32" fill="#000" opacity=".55" filter="url(#shadow)"/>
+  <g stroke-linecap="round" stroke-linejoin="round"><path class="item" d="M330 625q-18-30-20-95l-12-182q-2-20 13-22t19 20l14 127-7-240q0-23 17-23t19 23l8 216 4-259q1-23 18-22t17 24l-2 256 16-232q2-22 19-20t16 23l-16 260 24-136q4-21 20-17t12 25l-45 225q-11 55-61 63z"/><path class="item" d="M570 625q18-30 20-95l12-182q2-20-13-22t-19 20l-14 127 7-240q0-23-17-23t-19 23l-8 216-4-259q-1-23-18-22t-17 24l2 256-16-232q-2-22-19-20t-16 23l16 260-24-136q-4-21-20-17t-12 25l45 225q11 55 61 63z"/><path class="shine" d="M309 456h70M526 456h70"/></g>
+  <text x="96" y="894" fill="#f5f1ed" font-family="Georgia,serif" font-size="43">Guantes Opera</text>
+  <text x="98" y="936" fill="#ad9fa7" font-family="Arial,sans-serif" font-size="14" letter-spacing="3">GUANTES Y MÁSCARAS</text>
+  <text x="98" y="985" fill="#817880" font-family="Arial,sans-serif" font-size="12" letter-spacing="2">ILUSTRACION ORIGINAL · NO ES UNA FOTOGRAFIA</text>
+  <style>
+    .item{fill:url(#material);stroke:#e8dce2;stroke-opacity:.48;stroke-width:3;filter:drop-shadow(0 22px 24px #0009)}
+    .item-line{fill:none;stroke:url(#material);stroke-width:20;filter:drop-shadow(0 16px 17px #0009)}
+    .ghost{fill:#171519;stroke:#bca9b2;stroke-opacity:.22;stroke-width:2}
+    .shine{fill:none;stroke:#f6e9ef;stroke-opacity:.5;stroke-width:3}
+    .metal{fill:#c9b9c1;stroke:#f3e9ed;stroke-width:2}
+  </style>
+</svg>

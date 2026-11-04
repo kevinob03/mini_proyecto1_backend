@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 880" role="img" aria-labelledby="title desc">
+  <title id="title">Ilustración editorial genérica NOIR</title>
+  <desc id="desc">Ilustración abstracta de moda en una paleta oscura. No representa un producto específico.</desc>
+  <defs><linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#242126"/><stop offset="1" stop-color="#0d0d10"/></linearGradient><linearGradient id="fabric" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#3a353d"/><stop offset=".48" stop-color="#111114"/><stop offset="1" stop-color="#2a2027"/></linearGradient><radialGradient id="glow"><stop stop-color="#7a1636" stop-opacity=".42"/><stop offset="1" stop-color="#7a1636" stop-opacity="0"/></radialGradient></defs>
+  <rect width="720" height="880" fill="url(#bg)"/><ellipse cx="498" cy="334" rx="305" ry="330" fill="url(#glow)"/>
+  <path d="M360 135c-30 0-54 24-54 54v16h108v-16c0-30-24-54-54-54Z" fill="#777078"/>
+  <path d="M306 205h108l49 71 83 112-55 44-70-73 17 256H282l17-256-70 73-55-44 83-112 49-71Z" fill="url(#fabric)" stroke="#8d858d" stroke-opacity=".42" stroke-width="3"/>
+  <path d="m307 211 53 117 53-117M306 206l54 122 54-122" fill="none" stroke="#b4aab3" stroke-opacity=".42" stroke-width="2"/>
+  <path d="M282 615h244l-28 132H310l-28-132Z" fill="#111114" stroke="#8d858d" stroke-opacity=".35" stroke-width="2"/>
+  <path d="M126 751h468" stroke="#c3b8c1" stroke-opacity=".24"/><text x="50" y="820" fill="#c8bfc4" font-family="Arial,sans-serif" font-size="12" letter-spacing="4">ILUSTRACIÓN EDITORIAL GENÉRICA · NO ES UN PRODUCTO</text>
+</svg>

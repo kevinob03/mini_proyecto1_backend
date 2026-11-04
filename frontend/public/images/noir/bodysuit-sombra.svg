@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 1100" role="img" aria-labelledby="title description">
+  <title id="title">Ilustracion original NOIR: Bodysuit Sombra</title>
+  <desc id="description">Ilustracion vectorial editorial de Bodysuit Sombra; referencia visual, no fotografia del producto.</desc>
+  <defs>
+    <linearGradient id="background" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#27232a"/><stop offset=".55" stop-color="#121115"/><stop offset="1" stop-color="#09090b"/></linearGradient>
+    <radialGradient id="halo"><stop stop-color="#68717c" stop-opacity=".42"/><stop offset="1" stop-color="#68717c" stop-opacity="0"/></radialGradient>
+    <linearGradient id="material" x1="0" y1="0" x2=".9" y2="1"><stop stop-color="#68717c"/><stop offset=".42" stop-color="#171519"/><stop offset=".78" stop-color="#28232a"/><stop offset="1" stop-color="#68717c" stop-opacity=".7"/></linearGradient>
+    <filter id="shadow" x="-30%" y="-30%" width="160%" height="170%"><feGaussianBlur stdDeviation="20"/></filter>
+  </defs>
+  <rect width="900" height="1100" fill="url(#background)"/><ellipse cx="500" cy="477" rx="380" ry="400" fill="url(#halo)"/>
+  <path d="M72 85h756M72 1015h756" stroke="#dfd3dc" stroke-opacity=".18"/><path d="M96 83v18m708-18v18M96 999v18m708-18v18" stroke="#c18ba0" stroke-opacity=".65"/>
+  <text x="96" y="144" fill="#c6a7b4" font-family="Arial,sans-serif" font-size="15" letter-spacing="5">NOIR  /  EDITORIAL OBJECT 04</text>
+  <ellipse cx="450" cy="774" rx="220" ry="32" fill="#000" opacity=".55" filter="url(#shadow)"/>
+  <g stroke-linecap="round" stroke-linejoin="round"><path class="item" d="M395 172h110v45H395zM395 217h110l44 54 74 86-40 40-62-57 16 105-48 94H411l-48-94 16-105-62 57-40-40 74-86z"/><path class="shine" d="M396 194h108M406 224l42 53 46-53M333 292l67 52M567 292l-67 52M398 358h104"/></g>
+  <text x="96" y="894" fill="#f5f1ed" font-family="Georgia,serif" font-size="43">Bodysuit Sombra</text>
+  <text x="98" y="936" fill="#ad9fa7" font-family="Arial,sans-serif" font-size="14" letter-spacing="3">PRENDA DE LATEX</text>
+  <text x="98" y="985" fill="#817880" font-family="Arial,sans-serif" font-size="12" letter-spacing="2">ILUSTRACION ORIGINAL · NO ES UNA FOTOGRAFIA</text>
+  <style>
+    .item{fill:url(#material);stroke:#e8dce2;stroke-opacity:.48;stroke-width:3;filter:drop-shadow(0 22px 24px #0009)}
+    .item-line{fill:none;stroke:url(#material);stroke-width:20;filter:drop-shadow(0 16px 17px #0009)}
+    .ghost{fill:#171519;stroke:#bca9b2;stroke-opacity:.22;stroke-width:2}
+    .shine{fill:none;stroke:#f6e9ef;stroke-opacity:.5;stroke-width:3}
+    .metal{fill:#c9b9c1;stroke:#f3e9ed;stroke-width:2}
+  </style>
+</svg>
