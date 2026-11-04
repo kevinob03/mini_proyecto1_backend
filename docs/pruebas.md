@@ -32,6 +32,7 @@ La respuesta exitosa es `201` con `{ "data": { ... } }`. Para asociar una imagen
 - Servidor Express: inició en `http://localhost:3000`.
 - Respaldo local `GET http://127.0.0.1:5173/noir-placeholder.svg`: `200 image/svg+xml`.
 - Ilustraciones de producto: se generaron 15 SVG locales en `frontend/public/images/noir/`; sus rutas `/images/noir/<archivo>.svg` se guardan en `productos.imagen_url` desde el SQL de demostración.
+- Portada: la imagen compartida por el usuario quedó local en `/images/noir/cover-reference.jpg`, separada de las fotos/ilustraciones de productos.
 - `GET /api/imagenes/buscar?query=x`: `400` con JSON indicando longitud mínima.
 - `GET /api/imagenes/buscar?query=latex%20fashion`: `503` con JSON indicando que falta configurar Unsplash.
 - `POST /api/imagenes/seleccionar` con id inválido: `400` con JSON de validación.

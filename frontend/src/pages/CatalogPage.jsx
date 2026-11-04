@@ -2,6 +2,7 @@ import { useEffect, useMemo, useState } from 'react';
 import { api } from '../services/api.js';
 
 const placeholder = '/noir-placeholder.svg';
+const coverImage = '/images/noir/cover-reference.jpg';
 const money = new Intl.NumberFormat('es-CR', { style: 'currency', currency: 'CRC', maximumFractionDigits: 0 });
 
 function ImageCredit({ item }) {
@@ -47,7 +48,7 @@ export default function CatalogPage() {
   return <>
     <section className="hero">
       <div className="hero-copy"><span className="eyebrow">MODA ALTERNATIVA · SAN JOSÉ</span><h1>La noche<br /><em>tiene forma.</em></h1><p>Prendas y accesorios de estética oscura, presentados como un catálogo académico de inventario.</p><a className="button button-primary" href="#catalogo">Explorar catálogo <span>↓</span></a></div>
-      <div className="hero-art"><img src={placeholder} alt="Ilustración editorial genérica de moda oscura; no representa un producto específico"/><span className="hero-index">ARCHIVE&nbsp; / &nbsp;NO. 01</span></div>
+      <div className="hero-art"><img src={coverImage} alt="Referencia editorial: traje de lobo antropomórfico con arnés verde sobre fondo claro"/><span className="hero-index">REFERENCIA DE ESTILO&nbsp; / &nbsp;NO. 01</span></div>
       <div className="hero-side-label">NOIR · ESTUDIO DE ESTILO</div>
     </section>
     <div className="demo-banner"><span className="demo-icon">✳</span><span><strong>Catálogo de demostración</strong> · Productos, precios y existencias ficticios. No hay ventas ni compras disponibles.</span><span className="adult-label">SOLO ADULTOS · 18+</span></div>

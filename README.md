@@ -11,6 +11,7 @@ backend/src/{config,controllers,models,routes}/ API Express
 frontend/src/{components,pages,services}/       Catálogo y administración React
 frontend/public/noir-placeholder.svg            Respaldo ilustrado genérico
 frontend/public/images/noir/                    15 ilustraciones originales para el catálogo
+frontend/public/images/noir/cover-reference.jpg Imagen compartida para la portada
 frontend/scripts/generate-noir-illustrations.mjs Generador de las ilustraciones SVG
 database/inventario.sql                        Esquema NOIR para instalación nueva
 database/002_noir_image_migration.sql          Migración aditiva de imagen
