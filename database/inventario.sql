@@ -2,6 +2,32 @@ CREATE DATABASE IF NOT EXISTS inventario_empresa
   CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 USE inventario_empresa;
 
+CREATE TABLE IF NOT EXISTS usuarios (
+  id INT UNSIGNED NOT NULL AUTO_INCREMENT,
+  nombre VARCHAR(100) NOT NULL,
+  correo VARCHAR(150) NOT NULL,
+  password VARCHAR(255) NOT NULL,
+  fechaCreacion TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (id),
+  UNIQUE KEY uq_usuarios_correo (correo)
+) ENGINE=InnoDB;
+
+CREATE TABLE IF NOT EXISTS seguridad_login (
+  usuario_id INT UNSIGNED NOT NULL,
+  intentos_fallidos TINYINT UNSIGNED NOT NULL DEFAULT 0,
+  bloqueado_hasta DATETIME NULL,
+  codigo_hash CHAR(64) CHARACTER SET ascii COLLATE ascii_bin NULL,
+  codigo_expira DATETIME NULL,
+  intentos_codigo TINYINT UNSIGNED NOT NULL DEFAULT 0,
+  codigo_enviado_en DATETIME NULL,
+  reenvios_codigo TINYINT UNSIGNED NOT NULL DEFAULT 0,
+  password_reset_hash CHAR(64) CHARACTER SET ascii COLLATE ascii_bin NULL,
+  password_reset_expira DATETIME NULL,
+  PRIMARY KEY (usuario_id),
+  CONSTRAINT fk_seguridad_login_usuario FOREIGN KEY (usuario_id)
+    REFERENCES usuarios (id) ON UPDATE CASCADE ON DELETE CASCADE
+) ENGINE=InnoDB;
+
 CREATE TABLE IF NOT EXISTS categorias (
   id INT UNSIGNED NOT NULL AUTO_INCREMENT,
   nombre VARCHAR(100) NOT NULL,

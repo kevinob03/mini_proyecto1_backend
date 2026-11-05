@@ -1,41 +1,23 @@
-# Pruebas y guía de verificación
+# Plan y resultados de pruebas — Día 2
 
-## API de imágenes
+## Ejecución observada
 
-`GET /api/imagenes/buscar?query=black%20corset%20fashion` devuelve `{ "data": [...] }` con `url`, `alt`, `author`, `authorUrl` y `creditUrl`. Usa `content_filter=high` en Unsplash. `POST /api/imagenes/seleccionar` con `{ "photoId": "..." }` notifica la elección de una foto a Unsplash.
+El 5 de noviembre de 2026 se ejecutó `node scripts/smoke-day2.js` desde `backend/`, contra el servidor Express local y MySQL configurado en `backend/.env`.
 
-## CRUD y catálogo
+**Resultado real: 50 pruebas HTTP superadas.** Se verificaron registro correcto (201), registro inválido y correo duplicado (400), login válido (200), contador de intentos restantes sin revelar información para correos inexistentes, límite de 5 contraseñas fallidas y bloqueo (423), rechazo de login mientras está bloqueado, reenvío de código (200), espera de 60 segundos y máximo de 3 reenvíos (429), código incorrecto (400), código correcto (200), elección de conservar o cambiar contraseña, permiso temporal de un solo uso, rechazo de contraseña corta, contraseña anterior inválida tras el cambio, nuevo login con contraseña actualizada, `/me` con y sin token (200/401), token mal formado y token correctamente firmado pero expirado (401), CRUD de categorías/proveedores/productos (201/200/204), acceso sin token a categorías e imágenes (401), ID inexistente (404), datos inválidos (400), clave foránea inexistente (400) y borrado de categoría relacionada (409). La API no devolvió hashes de contraseñas ni permisos temporales.
 
-Base: `http://localhost:3000`.
+También se confirmó conexión MySQL con `SELECT 1`, presencia de las tablas `usuarios` y `seguridad_login` tras ejecutar las migraciones y compilación Vite exitosa. El recorrido de desbloqueo usa una cuenta QA temporal; para verificar los endpoints sin enviar un correo real, el script instala un HMAC de código conocido únicamente en esa fila y limpia los datos QA al final. No se imprimen credenciales ni secretos y no se eliminan registros preexistentes.
 
-Crear producto (`POST /api/productos`, `Content-Type: application/json`):
+## Colección Postman
 
-```json
-{
-  "nombre": "Bodysuit de muestra",
-  "descripcion": "Referencia de moda editorial.",
-  "precio": 64800,
-  "stock": 6,
-  "categoria_id": 1,
-  "proveedor_id": 1
-}
-```
+Importa [`postman/NOIR_Dia2.postman_collection.json`](../postman/NOIR_Dia2.postman_collection.json) y ejecútala en orden. La primera petición define un correo QA único; la petición de login almacena el token como variable de colección. Requiere que API y MySQL estén ejecutándose.
 
-La respuesta exitosa es `201` con `{ "data": { ... } }`. Para asociar una imagen, incluye `imagen_url` (HTTPS), `imagen_autor`, `imagen_autor_url`, `imagen_credito_url` e `imagen_fuente`.
+La colección prepara registros QA propios y termina eliminando el producto, categoría y proveedor QA. Ejecuta toda la colección en el mismo orden para que los identificadores se compartan. El usuario de prueba no cuenta con endpoint de borrado por diseño; para limpiar ese usuario QA después, usa SQL parametrizado con el correo generado en la variable `email`. No borres usuarios reales.
 
-`GET /api/productos` devuelve `200` con `{ "data": [...] }`, incluyendo el nombre de categoría/proveedor y datos opcionales de la imagen. Los CRUD completos también están en `/api/categorias` y `/api/proveedores`. Los precios y existencias de las filas de demostración son ficticios; no se procesan compras.
+La colección contiene los casos de token inválido y de intento de desbloqueo sin código activo. La prueba de integración genera localmente un JWT firmado con expiración pasada, sin esperar una hora, y comprueba 401; también ejercita el flujo de bloqueo y verificación con datos QA.
 
-## Registro de verificaciones ejecutadas
+## Limitaciones de la evidencia
 
-- `npm run build` en `frontend/`: completado correctamente (32 módulos transformados).
-- `node --check` en el servidor, controlador de entidades, controlador de imágenes y modelo de producto: correcto.
-- Servidor Express: inició en `http://localhost:3000`.
-- Respaldo local `GET http://127.0.0.1:5173/noir-placeholder.svg`: `200 image/svg+xml`.
-- Ilustraciones de producto: se generaron 15 SVG locales en `frontend/public/images/noir/`; sus rutas `/images/noir/<archivo>.svg` se guardan en `productos.imagen_url` desde el SQL de demostración.
-- Portada: la imagen compartida por el usuario quedó local en `/images/noir/cover-reference.jpg`, separada de las fotos/ilustraciones de productos.
-- `GET /api/imagenes/buscar?query=x`: `400` con JSON indicando longitud mínima.
-- `GET /api/imagenes/buscar?query=latex%20fashion`: `503` con JSON indicando que falta configurar Unsplash.
-- `POST /api/imagenes/seleccionar` con id inválido: `400` con JSON de validación.
-- `GET /api/health`: `503 database unavailable`; MySQL rechaza la conexión `root` sin contraseña.
-- No se ejecutó CRUD persistido, migración SQL ni búsqueda real de fotos porque no hay credenciales locales configuradas.
-- La revisión visual automática se omitió: no hay navegador disponible en el entorno de control UI (inventario vacío).
+- La colección está preparada para importar, pero no se reporta como ejecutada dentro de Postman.
+- El build probado es el build de producción de Vite; el flujo de UI no se automatizó con un navegador.
+- La prueba de integración necesita el `.env` privado local y no crea una base de datos desde cero.
